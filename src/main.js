@@ -7,6 +7,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 const app = createApp(App)
+
 axios.defaults.baseURL = 'https://api.spoonacular.com'
 app.use(VueAxios, axios)
 app.use(store)

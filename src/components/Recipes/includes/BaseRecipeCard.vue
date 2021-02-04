@@ -1,0 +1,74 @@
+<template >
+    <a href="#" class="card" @mouseenter="isOverlay = true" @mouseleave="isOverlay = false">
+        <img :src="image" alt="Food Image">
+        <transition name="overlay">
+            <div class="card-overlay" v-if="isOverlay">
+                <h1 class="food-name">{{ title }}</h1>
+                <span class="time">Time: {{ readyInMinutes }} minutes</span>
+            </div>
+        </transition>
+    </a>
+</template>
+<script>
+export default {
+    name: 'Base Recipe Card',
+    props: {
+        title: {
+            type: String,
+            required: true
+        },
+        readyInMinutes:{
+            type: Number,
+        },
+        image: {
+            type: String,
+        }
+    },
+    data() {
+        return {
+            isOverlay: false,
+        }
+    },
+}
+</script>
+<style lang="scss" scoped>
+.card{
+    height: 20em;
+    display: flex;
+    position: relative;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &-overlay{
+        position: absolute;
+        color: white;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-color: rgba($color: #111, $alpha: .6);
+        .food-name{
+            font-size: 2em;
+            text-align: center;
+            padding: .6em;
+        }
+        .time{
+            font-size: 1.2em;
+            position: absolute;
+            bottom: 10px;
+            left: 5px;
+        }
+    }
+}
+
+.overlay-enter-active,
+.overlay-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.overlay-enter-from,
+.overlay-leave-to {
+  opacity: 0;
+}
+</style>

@@ -1,16 +1,6 @@
 export default{
     state(){
         return{
-            RecipeInfo: {
-                id: 716429,
-                calories: 584,
-                carbs: "84g",
-                fat: "20g",
-                image: "https://spoonacular.com/recipeImages/716429-312x231.jpg",
-                imageType: "jpg",
-                protein: "19g",
-                title: "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs"
-            },
             ReceipeDetails: {
                 "id": 716429,
     "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
@@ -366,7 +356,6 @@ export default{
         }
     },
     getters:{
-        getRecipeInfo: state => state.RecipeInfo,
         getRecipeDetails: state => state.ReceipeDetails
     },
 }
