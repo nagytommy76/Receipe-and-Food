@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-    name: 'Base Recipe Card',
+    name: 'BaseRecipeCard',
     props: {
         title: {
             type: String,
@@ -36,6 +36,11 @@ export default {
     height: 20em;
     display: flex;
     position: relative;
+    transition: all .2s ease;
+    &:hover{
+        transform: translateY(-3px);
+        box-shadow: 2px 2px 19px #333;
+    }
     img{
         width: 100%;
         height: 100%;
@@ -64,7 +69,7 @@ export default {
 
 .overlay-enter-active,
 .overlay-leave-active {
-  transition: opacity 0.4s ease;
+  transition: opacity 0.2s ease;
 }
 
 .overlay-enter-from,

@@ -30,7 +30,7 @@ export default {
     &-nav{
         display: flex;
         .router-link-active{
-            background-color: #A04000;
+            background-color: $navbar-hover-color;
         }
         &-item{
             list-style: none;
@@ -41,7 +41,7 @@ export default {
             transition: all .3s ease;
             border-radius: 5px;
             &:hover{
-                background-color: #A04000;
+                background-color: $navbar-hover-color;
                 cursor: pointer;
             }           
         }
