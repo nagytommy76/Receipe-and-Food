@@ -1,38 +1,41 @@
 <template>
     <section class="container">
-    <base-search-section></base-search-section>
+        <base-search-section></base-search-section>
         <section class="card-container">
-            <!-- <base-receipe-card
-                :title="getRecipeDetails.title"
-                :image="getRecipeDetails.image"
-                :readyInMinutes="getRecipeDetails.readyInMinutes"
+            <base-receipe-card
+                v-for="recipe in recipeDetails" :key="recipe.id"
+                :title="recipe.title"
+                :image="recipe.image"
+                :readyInMinutes="recipe.readyInMinutes"
             ></base-receipe-card>
             <base-receipe-card
-                :title="getRecipeDetails.title"
-                :image="getRecipeDetails.image"
-                :readyInMinutes="getRecipeDetails.readyInMinutes"
-            ></base-receipe-card> -->
+                v-for="recipe in recipeDetails" :key="recipe.id"
+                :title="recipe.title"
+                :image="recipe.image"
+                :readyInMinutes="recipe.readyInMinutes"
+            ></base-receipe-card>
+            <base-receipe-card
+                v-for="recipe in recipeDetails" :key="recipe.id"
+                :title="recipe.title"
+                :image="recipe.image"
+                :readyInMinutes="recipe.readyInMinutes"
+            ></base-receipe-card>
         </section>
     </section>
 </template>
 <script>
 import { mapGetters } from 'vuex'
-// import BaseRecipeCard from './includes/BaseRecipeCard'
+import BaseRecipeCard from './includes/BaseRecipeCard'
 import BaseSearchSection from './includes/BaseSearchSection'
 export default {
     name: 'RecipesSearch',
     computed:{
         ...mapGetters({
-            getRecipeDetails: 'getRecipeDetails'
+            recipeDetails: 'getRecipeDetails'
         }),
     },
-    data() {
-        return {
-            isOverlay: false,
-        }
-    },
     components:{
-        // 'base-receipe-card' : BaseRecipeCard,
+        'base-receipe-card' : BaseRecipeCard,
         'base-search-section' : BaseSearchSection,
     },
     mounted() {
@@ -44,14 +47,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .container{
-    margin-top: 2em;
-    min-height: 80vh;
+    min-height: 85vh;
+    width: 60%;
+    margin: 2em auto 0 auto;
     .card-container{
         display: grid;
         gap: 2em;
-        justify-content: center;
-        grid-template-columns: 34em 34em;
-
+        width: 100%;
+        // margin: auto;
+        // justify-content: center;
+        // justify-self: center;
+        grid-template-columns: repeat(2, auto);
     }
 }
 </style>

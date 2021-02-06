@@ -34,6 +34,7 @@ export default {
 <style lang="scss" scoped>
 .card{
     height: 20em;
+    // width: 30em;
     display: flex;
     position: relative;
     transition: all .2s ease;

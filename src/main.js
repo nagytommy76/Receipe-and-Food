@@ -6,7 +6,6 @@ import store from "./store";
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 axios.defaults.baseURL = 'https://api.spoonacular.com'
-
 const app = createApp(App)
 
 import BaseButton from './components/BaseComponents/Form/BaseButton'

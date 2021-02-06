@@ -2,6 +2,7 @@
     <div class="form-control">
         <label :for="name">{{ formName }}</label>
         <input 
+            autocomplete="off"
             class="form-control-input"
             :id="name"
             :type="type"
