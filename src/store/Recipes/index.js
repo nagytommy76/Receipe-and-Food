@@ -1,9 +1,8 @@
 import actions from './actions.js'
-import test from './testObject'
 export default{
     state(){
         return{
-            ReceipeDetails: test,
+            ReceipeDetails: null,
         }
     },
     getters:{

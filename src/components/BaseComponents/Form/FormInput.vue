@@ -9,6 +9,10 @@
             :name="name"
             v-model="value"
         />
+        <error-msg
+            v-if="hasError"
+            :msg="errorMsg"
+        ></error-msg>
     </div>
 </template>
 <script>
@@ -37,6 +41,15 @@ export default {
         formName: {
             type: String,
             required: true
+        },
+        hasError: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        errorMsg: {
+            type: String,
+            required: false
         },
         // A parent (BaseSearchSection) tesz rá egy model-value prop-ot és egy update:modelValue emit-et
         // így látom a base componentben az adatokat

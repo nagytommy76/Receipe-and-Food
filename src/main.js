@@ -14,6 +14,9 @@ app.component('base-button', BaseButton)
 app.component('form-input', defineAsyncComponent(() => import('./components/BaseComponents/Form/FormInput')))
 app.component('form-select', defineAsyncComponent(() => import('./components/BaseComponents/Form/FormSelect')))
 app.component('form-select', defineAsyncComponent(() => import('./components/BaseComponents/Form/FormSelect')))
+app.component('error-msg', defineAsyncComponent(() => import('./components/BaseComponents/Form/BaseErrorMsg')))
+
+app.component('tooltip', defineAsyncComponent(() => import('./components/BaseComponents/Utility/Tooltip')))
 
 app.use(VueAxios, axios)
 app.use(store)

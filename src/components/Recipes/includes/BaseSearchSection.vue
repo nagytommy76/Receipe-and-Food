@@ -1,14 +1,16 @@
 <template>
-<section class="search-container">
+<section class="search-container" @mouseleave="closeSearchAside">
     <div class="open-search" @mouseenter="openSearchAside"><p>Search</p></div>
     <transition name="search">
-    <aside class="search" v-if="isSearchOpen" @mouseleave="closeSearchAside">
+    <aside class="search" v-if="isSearchOpen">
         <h2 class="search-title">Search Food</h2>
         <form class="form">
             <form-input 
                 v-model="storeData.foodName"
                 :formName="'Food name'"
                 :name="'foodName'"
+                :hasError="hasErrors"
+                :errorMsg="errorMsgs.foodName"
             />
             <form-input 
                 v-model="storeData.includeIngredients"
@@ -49,7 +51,7 @@ export default {
     data() {
         return {
             storeData: {
-                foodName: '',
+                foodName: null,
                 includeIngredients: '',
                 numberOfResults: 10,
                 maxReadyTime: null,
@@ -57,11 +59,17 @@ export default {
             },
             sortByData: ['popularity', 'time', 'price', 'healthiness'],
             isSearchOpen: false,
+            hasErrors: false,
+            errorMsgs: {
+                foodName: '',
+            }
         }
     },
     methods: {
         openSearchAside(){
-            this.isSearchOpen = true  
+            if (!this.isSearchOpen) {
+                this.isSearchOpen = true    
+            }
         },
         closeSearchAside(){
             this.isSearchOpen = false
@@ -71,7 +79,19 @@ export default {
         }),
         searchFoods(){
             // Itt átalakítani az includeIngredients-et comma separated-re
-            this.receipeSearch(this.storeData)
+            this.validateFormInputs()
+            if (!this.hasErrors) {
+                this.receipeSearch(this.storeData)
+            }
+        },
+        validateFormInputs(){
+            if (this.storeData.foodName === null || this.storeData.foodName === '') {
+                this.hasErrors = true
+                this.errorMsgs.foodName = 'Food name is required!'
+                setTimeout(() =>{
+                    this.hasErrors = false
+                }, 10000)
+            }
         }
     },
 }

@@ -7,6 +7,6 @@ export default{
 
         await axios.get(`/recipes/complexSearch?${process.env.VUE_APP_API_KEY_URL}&fillIngredients=true&addRecipeInformation=true&query=${storedData.foodName}&includeIngredients=${storedData.includeIngredients}${maxReadyTime}${sort}${nrOfResults}`).then(result =>{
             context.commit('setReceipeDetails', result.data.results)
-        })
+        }).catch(() => {throw new Error})
     }
 }

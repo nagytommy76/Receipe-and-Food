@@ -1,12 +1,21 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import RecipesSearch from '../components/Recipes/RecipesSearch'
+import RecipeDetails from '../components/Recipes/RecipeDetails'
 
 const routes = [
   {
     path: "/",
     name: "Recipes",
-    component: RecipesSearch
+    component: RecipesSearch,
+    children: [
+      {
+        path: '/details/:recipeId',
+        name: 'RecipeDetails',
+        component: RecipeDetails,
+        props: true,
+      },
+    ]
   },
 ];
 

@@ -1,5 +1,5 @@
-<template >
-    <a href="#" class="card" @mouseenter="isOverlay = true" @mouseleave="isOverlay = false">
+<template>
+    <router-link :to="{name: 'RecipeDetails', params: { recipeId: id }}" class="card" @mouseenter="isOverlay = true" @mouseleave="isOverlay = false">
         <img :src="image" alt="Food Image">
         <transition name="overlay">
             <div class="card-overlay" v-if="isOverlay">
@@ -7,12 +7,16 @@
                 <span class="time">Time: {{ readyInMinutes }} minutes</span>
             </div>
         </transition>
-    </a>
+    </router-link>
 </template>
 <script>
 export default {
     name: 'BaseRecipeCard',
     props: {
+        id: {
+            type: String,
+            required: true,
+        },
         title: {
             type: String,
             required: true
