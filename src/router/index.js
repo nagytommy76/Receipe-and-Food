@@ -17,10 +17,24 @@ const routes = [
       },
     ]
   },
+  // {
+  //   path: '*',
+  //   redirect: '/'
+  // }
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  scrollBehavior(_, _2, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { 
+        top: 0,
+        behavior: 'smooth'
+      }
+    }
+  },
   routes
 });
 

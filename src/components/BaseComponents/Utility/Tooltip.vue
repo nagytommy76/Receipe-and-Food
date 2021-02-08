@@ -1,20 +1,61 @@
 <template>
-    <div class="tooltip">
+    <div class="tooltip" @mouseenter="openTooltip" @mouseleave="closeTooltip">
         <span class="tooltip-item"><slot name="item"></slot></span>
-        <div class="tooltip-text">
-            <slot name="text"></slot>
-        </div>
+        <transition name="tooltip">
+            <div class="tooltip-text" v-if="isTooltipOpen">
+                <slot name="text"></slot>
+            </div>
+        </transition>
     </div>
 </template>
 <script>
 export default {
-    
+    data() {
+        return {
+            isTooltipOpen: false,
+        }
+    },
+    methods: {
+        openTooltip(){
+            this.isTooltipOpen = true
+        },
+        closeTooltip(){
+            this.isTooltipOpen = false
+        }
+    },
 }
 </script>
 <style lang="scss" scoped>
-// .tooltip{
-//     &-item{
+.tooltip{
+    position: relative;
+    &-item{
+        cursor: pointer;
+    }
+    &-text{
+        z-index: 4;
+        position: absolute;
+        top: -35px;
+        right: 0;
+        left: 0;
+        color: white;
+        min-width: 170px;
+        min-height: 40px;
+        padding: .3rem;
+        background-color: rgba($color: #111, $alpha: .9);
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 1px 1px 20px $dark;
+    }
+}
+.tooltip-enter-active,
+.tooltip-leave-active{
+    transition: all .25s ease;
+}
 
-//     }
-// }
+.tooltip-enter-from,
+.tooltip-leave-to{
+    // opacity: 0;
+    transform: scale(0);
+
+}
 </style>

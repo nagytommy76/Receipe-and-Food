@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 .container{
     min-height: 85vh;
-    width: 70%;
+    width: 80%;
     margin: 2em auto 0 auto;
     .card-container{
         display: grid;

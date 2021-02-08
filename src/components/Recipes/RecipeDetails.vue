@@ -2,21 +2,26 @@
     <section class="food-container">
         <h1 class="main-title">{{ details.title }}</h1>
         <section class="main-content">
-            <img :src="image" alt="Food image">
+            <img class="image" :src="image" alt="Food image">
             <section class="ingredients">
                 <span class="ingredients-item" 
                     v-for="ingred in details.extendedIngredients" :key="ingred.id">
-                    <!-- <p>name: {{ ingred.name}}</p> -->
                     <tooltip>
                         <template v-slot:item>
                             <img :src="`https://spoonacular.com/cdn/ingredients_100x100/${ingred.image}`" alt="">
                         </template>
                         <template v-slot:text>
-                            <p>TEXT</p>                            
+                            <section class="tooltip-list">
+                                <h3>{{ ingred.name }}</h3>
+                                <p>{{ ingred.measures.metric.amount }} {{ ingred.measures.metric.unitLong }} {{ ingred.originalName }}</p> 
+                            </section>                           
                         </template>
                     </tooltip>
                 </span>
             </section>
+        </section>
+        <section class="summary">
+            <p class="summary-text" v-html="details.summary"></p>
         </section>
     </section>
 </template>
@@ -47,7 +52,7 @@ export default {
 <style lang="scss" scoped>
 .food-container{
     // margin: 1em 0 3em 0;
-    min-height: 60vh;
+    min-height: 70vh;
     .main-title{
         text-align: center;
         font-size: 2.3em;
@@ -55,6 +60,9 @@ export default {
     }
     .main-content{
         display: flex;
+        .image{
+            height: 60%;
+        }
         .ingredients{
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -67,6 +75,22 @@ export default {
                 width: 150px;
             }
         }
+    }
+    .summary{
+        width: 90%;
+        margin: auto;
+        &-text{
+            padding: 1em;
+            background-color: #eee;
+            line-height: 1.1em;
+            text-align: justify;
+        }
+    }
+}
+
+.tooltip-list{
+    h3{
+        margin-bottom: .5rem;
     }
 }
 </style>
