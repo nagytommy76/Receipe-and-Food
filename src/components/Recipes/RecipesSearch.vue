@@ -33,16 +33,19 @@ export default {
 <style lang="scss" scoped>
 .container{
     min-height: 85vh;
-    width: 80%;
+    max-width: 80%;
     margin: 2em auto 0 auto;
     .card-container{
         display: grid;
         gap: 2em;
         width: 100%;
-        // margin: auto;
-        // justify-content: center;
-        // justify-self: center;
         grid-template-columns: auto auto;
+    }
+}
+
+@media(max-width: $mobile-screen){
+    .container{
+        max-width: 100%;
     }
 }
 </style>

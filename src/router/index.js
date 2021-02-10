@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import RecipesSearch from '../components/Recipes/RecipesSearch'
 import RecipeDetails from '../components/Recipes/RecipeDetails'
+import NotFound from '../components/BaseComponents/Error/PageNotFound'
 
 const routes = [
   {
@@ -15,12 +16,16 @@ const routes = [
         component: RecipeDetails,
         props: true,
       },
+      {
+        path: '/details/:notFound(.*)',
+        redirect: '/'
+      }
     ]
   },
-  // {
-  //   path: '*',
-  //   redirect: '/'
-  // }
+  {
+    path: '/:notFound(.*)',
+    component: NotFound
+  }
 ];
 
 const router = createRouter({

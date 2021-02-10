@@ -47,4 +47,11 @@ export default {
         }
     }
 }
+@media(min-width: $mobile-screen) {
+    .navbar{
+        &-nav{
+            flex-direction: row;
+        }
+    }
+}
 </style>

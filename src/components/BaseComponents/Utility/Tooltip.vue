@@ -47,6 +47,16 @@ export default {
         box-shadow: 1px 1px 20px $dark;
     }
 }
+
+@media(max-width: $mobile-screen) {
+    .tooltip{
+        &-text{
+        top: -35px;
+        left: -50px;
+        }
+    }
+}
+
 .tooltip-enter-active,
 .tooltip-leave-active{
     transition: all .25s ease;

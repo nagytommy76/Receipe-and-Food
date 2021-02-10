@@ -122,7 +122,6 @@ export default {
         }
     }
     .open-search{
-        z-index: 3;
         width: 50px;
         height: 150px;
         background-color: #ffbb00;
