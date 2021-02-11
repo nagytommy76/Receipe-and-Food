@@ -1,6 +1,6 @@
 <template>
 <section class="search-container" @mouseleave="closeSearchAside">
-    <div class="open-search" @mouseenter="openSearchAside"><p>Search</p></div>
+    <div class="open-search" @mouseenter="openSearchAside" @click="openSearchAside"><p>Search</p></div>
     <transition name="search">
     <aside class="search" v-if="isSearchOpen">
         <h2 class="search-title">Search Food</h2>
@@ -101,7 +101,7 @@ export default {
         z-index: 3;
         position: fixed;
         width: 300px;
-        height: 50vh;
+        min-height: 50vh;
         top: 25%;
         left: 0;
     .search{
@@ -122,22 +122,33 @@ export default {
         }
     }
     .open-search{
-        width: 50px;
-        height: 150px;
+        width: 150px;
+        height: 50px;
         background-color: #ffbb00;
         position: absolute;
         left: 0px;
-        top: -150px;
+        top: -50px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         p{
             font-size: 1.5em;
-            transform: rotate(-90deg);
         }
     }
 }
+@media (max-width: $mobile-screen) {
+    .search-container{
+        top: 50px;
+        height: calc(100vh - 50px);
+        width: 100%;
+        .search{
+            height: calc(100vh - 50px);
+            width: 100%;
+        }
+    }
+}
+
 .search-enter-active,
 .search-leave-active {
   transition: all 0.3s ease-in;

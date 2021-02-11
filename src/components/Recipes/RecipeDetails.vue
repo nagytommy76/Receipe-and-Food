@@ -56,4 +56,10 @@ export default {
         min-height: 20vh;
     }
 }
+
+@media(max-width: $mobile-screen){
+.food-container{
+    width: 100vw;
+}
+}
 </style>

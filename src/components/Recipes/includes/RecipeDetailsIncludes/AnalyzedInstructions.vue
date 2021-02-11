@@ -62,7 +62,7 @@ export default {
 
 @media(max-width: $mobile-screen){
 .instruction{
-    grid-template-columns: 50%;
+    grid-template-columns: 90%;
 }
 }
 </style>

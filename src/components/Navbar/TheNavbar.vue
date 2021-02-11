@@ -47,10 +47,15 @@ export default {
         }
     }
 }
-@media(min-width: $mobile-screen) {
+@media(max-width: $mobile-screen) {
     .navbar{
+        flex-direction: column;
+        height: 45vh;
         &-nav{
-            flex-direction: row;
+            flex-direction: column;
+            &-item{
+                text-align: center;
+            }
         }
     }
 }

@@ -71,6 +71,7 @@ export default {
     .header-content{
         .ingredients{
             grid-template-columns: repeat(2, auto);
+            justify-items: center;
         }
     }
 }

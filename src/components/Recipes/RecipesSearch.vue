@@ -40,12 +40,19 @@ export default {
         gap: 2em;
         width: 100%;
         grid-template-columns: auto auto;
+        margin-bottom: 2em;
     }
 }
 
 @media(max-width: $mobile-screen){
     .container{
-        max-width: 100%;
+        width: 100vw;
+        margin: 0;
+        .card-container{
+            grid-template-columns: 90%;
+            width: 100vw;
+            justify-content: center;
+        }
     }
 }
 </style>
