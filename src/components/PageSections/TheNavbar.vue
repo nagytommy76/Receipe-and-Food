@@ -22,7 +22,7 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #17202A;
+    background-color: $navbar-bg;
     color: white;
     &-brand{
         font-size: 2em;

@@ -1,12 +1,24 @@
 <template>
   <TheNavbar />
   <router-view />
+  <TheFooter />
 </template>
 <script>
-import TheNavbar from './components/Navbar/TheNavbar'
+import { mapMutations } from 'vuex'
+import TheNavbar from './components/PageSections/TheNavbar'
+import TheFooter from './components/PageSections/TheFooter'
 export default {
   components:{
     TheNavbar,
+    TheFooter,
+  },
+  created(){
+    this.checkScreenWidth()
+  },
+  methods:{
+    ...mapMutations({
+      checkScreenWidth: 'setScreenWidth'
+    }),
   },
 }
 </script>

@@ -1,8 +1,8 @@
 <template>
-<section class="search-container" @mouseleave="closeSearchAside">
-    <div class="open-search" @mouseenter="openSearchAside" @click="openSearchAside"><p>Search</p></div>
+<!-- <section class="search-container" @mouseleave="closeSearchAside"> -->
+    <div class="open-search" @mouseenter="openSearchAside" @click="toggleSearchAside"><p>Search</p></div>
     <transition name="search">
-    <aside class="search" v-if="isSearchOpen">
+    <aside class="search" @mouseleave="closeSearchAside" v-if="isSearchOpen">
         <h2 class="search-title">Search Food</h2>
         <form class="form">
             <form-input 
@@ -42,7 +42,7 @@
         </form>
     </aside>
     </transition>
-</section>
+<!-- </section> -->
 </template>
 <script>
 import { mapActions } from 'vuex'
@@ -74,6 +74,9 @@ export default {
         closeSearchAside(){
             this.isSearchOpen = false
         },
+        toggleSearchAside(){
+            this.isSearchOpen = !this.isSearchOpen
+        },
         ...mapActions({
             receipeSearch: 'getReceipeSerachResult',
         }),
@@ -97,18 +100,24 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.search-container{
-        z-index: 3;
+// .search-container{
+//         z-index: 3;
+//         position: fixed;
+//         width: 300px;
+//         min-height: 50vh;
+//         top: 25%;
+//         left: 0;
+    .search{
+        z-index: 5;
         position: fixed;
         width: 300px;
         min-height: 50vh;
         top: 25%;
         left: 0;
-    .search{
         background-color: $dark;
         box-shadow: 1px 1px 25px $dark;
-        width: 300px;
-        height: 50vh;
+        // width: 300px;
+        // height: 50vh;
         color: white;
         display: flex;
         flex-direction: column;
@@ -122,12 +131,13 @@ export default {
         }
     }
     .open-search{
+        z-index: 5;
         width: 150px;
         height: 50px;
         background-color: #ffbb00;
-        position: absolute;
+        position: fixed;
         left: 0px;
-        top: -50px;
+        top: 22vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -136,7 +146,7 @@ export default {
             font-size: 1.5em;
         }
     }
-}
+// }
 @media (max-width: $mobile-screen) {
     .search-container{
         top: 50px;

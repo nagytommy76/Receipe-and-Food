@@ -1,6 +1,6 @@
 <template>
     <section class="container">
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
         <base-search-section></base-search-section>
         <section class="card-container">
             <base-receipe-card

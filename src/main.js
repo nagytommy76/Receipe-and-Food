@@ -1,12 +1,18 @@
+require('./fontAwesome')
 import { createApp, defineAsyncComponent } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 axios.defaults.baseURL = 'https://api.spoonacular.com'
+
 const app = createApp(App)
+
+app.component('font-awesome-icon', FontAwesomeIcon)
 
 import BaseButton from './components/BaseComponents/Form/BaseButton'
 app.component('base-button', BaseButton)

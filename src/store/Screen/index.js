@@ -5,11 +5,15 @@ export default {
         }
     },
     getters:{
-        getMobileWidth(state){
+        getMobileWidth: state => state.mobileWidth
+    },
+    mutations: {
+        setScreenWidth(state){
             if (window.innerWidth <= 700) {
-                return state.mobileWidth = true
+                state.mobileWidth = true
+            }else{
+                state.mobileWidth = false
             }
-            return state.mobileWidth
         }
     }
 }

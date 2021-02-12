@@ -42,6 +42,7 @@ export default {
     display: flex;
     width: 100%;
     margin-bottom: 1.5em;
+    justify-content: center;
     .image{
         height: 60%;
     }
