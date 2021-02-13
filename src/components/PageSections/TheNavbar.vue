@@ -4,9 +4,6 @@
            <h1 class="navbar-brand">All About Foods</h1>
            <ul class="navbar-nav">
                <router-link class="navbar-nav-item" :to="{name: 'Recipes'}"><li>Search Recipes</li></router-link>
-               <a class="navbar-nav-item" href="#"><li>Ttrgbbbbeszt</li></a>
-               <a class="navbar-nav-item" href="#"><li>Őfdsdfds</li></a>
-               <a class="navbar-nav-item" href="#"><li>Űfjfjds</li></a>
            </ul>
         </nav> 
     </header>

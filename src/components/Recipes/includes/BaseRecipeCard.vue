@@ -4,7 +4,7 @@
         <transition name="overlay">
             <div class="card-overlay" v-if="isOverlay">
                 <h1 class="food-name">{{ title }}</h1>
-                <span class="time">Time: {{ readyInMinutes }} minutes</span>
+                <span class="time"><font-awesome-icon icon="clock" /> {{ readyInMinutes }} minutes</span>
             </div>
         </transition>
     </router-link>

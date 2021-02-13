@@ -34,7 +34,7 @@ export default {
     &-text{
         z-index: 4;
         position: absolute;
-        top: -35px;
+        top: -60px;
         right: 0;
         left: 0;
         color: white;
@@ -59,12 +59,11 @@ export default {
 
 .tooltip-enter-active,
 .tooltip-leave-active{
-    transition: all .25s ease;
+    transition: all .4s ease;
 }
 
 .tooltip-enter-from,
 .tooltip-leave-to{
-    // opacity: 0;
     transform: scale(0);
 
 }

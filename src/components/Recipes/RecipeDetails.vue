@@ -2,8 +2,7 @@
     <section class="food-container">
         <h1 class="main-title">{{ details.title }}</h1>
         <header-content 
-            :Image="details.image"
-            :extendedIngredients="details.extendedIngredients"
+            :details="details"
         />
         <section class="body-content">
             <Summary :summaryText="details.summary" />
@@ -17,8 +16,12 @@
 import Summary from './includes/RecipeDetailsIncludes/Summary'
 import HeaderContent from './includes/RecipeDetailsIncludes/DetailHeader'
 import AnalyzedInstructions from './includes/RecipeDetailsIncludes/AnalyzedInstructions'
+
+import findRecipe from '../../mixins/findRecipe'
+
 import { mapGetters } from 'vuex'
 export default {
+    mixins:[findRecipe,],
     name: 'RecipeDetails',
     components:{
         Summary,
@@ -36,17 +39,13 @@ export default {
             return this.findRecipeById()
         },
     },
-    methods: {
-        findRecipeById(){
-            return this.RecipeDetails.find(item => item.id == this.recipeId)
-        },
-    },
 }
 </script>
 <style lang="scss" scoped>
 .food-container{
-    min-height: 70vh;
-    margin-bottom: 3em;
+    min-height: 80vh;
+    max-width: 65%;
+    margin: 0 auto 3em auto;
     .main-title{
         text-align: center;
         font-size: 3.6em;
@@ -58,8 +57,12 @@ export default {
 }
 
 @media(max-width: $mobile-screen){
-.food-container{
-    width: 100vw;
+    .food-container{
+        max-width: 100vw;
+    }
 }
+
+@media (max-width: $large-screen) {
+    
 }
 </style>

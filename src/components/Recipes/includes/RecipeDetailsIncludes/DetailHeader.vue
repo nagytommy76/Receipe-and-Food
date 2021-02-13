@@ -3,38 +3,41 @@
         <img class="image" :src="image" alt="Food image">
         <section class="ingredients">
             <ingredient-item 
-                v-for="ingred in extendedIngredients" :key="ingred.id"
-                :ingredImage="ingred.image"
-                :IngredName="ingred.name"
-                :ingredAmount="ingred.measures.metric.amount"
-                :ingredUnitLong="ingred.measures.metric.unitLong"
-                :ingredOriginalName="ingred.originalName"
+                :extendedIngreds="details.extendedIngredients"
+                :ingredNutrition="details.nutrition.nutrients"
             />
         </section>
     </section>
 </template>
 <script>
 import IngredientItem from './IngredientItem'
+import findRecipe from '../../../../mixins/findRecipe'
 export default {
+    mixins: [findRecipe],
     components:{
         IngredientItem,
     },
+    // data() {
+    //     return {
+    //         isModalOpen: false,
+    //     }
+    // },
     computed: {
         image(){
-            return this.Image.replace('312x231', '636x393')
-        }
+            return this.details.image.replace('312x231', '636x393')
+        },
     },
     props:{
-        extendedIngredients: {
-            type: Array || Object,
+        details:{
+            type: Object,
             required: true
-        },
-        Image: {
-            type: String,
-            required: true,
-        },
-
+        }
     },
+    // methods: {
+    //     openModal(ingredId){
+    //         console.log(ingredId)
+    //     }
+    // },
 }
 </script>
 <style lang="scss" scoped>
@@ -44,12 +47,14 @@ export default {
     margin-bottom: 1.5em;
     justify-content: center;
     .image{
-        height: 60%;
+        width: auto;
+        height: 100%;
     }
     .ingredients{
         display: grid;
         grid-template-columns: repeat(4, auto);
         align-items: center;
+        justify-items: center;
     }
 }
 
@@ -65,6 +70,14 @@ export default {
         flex-direction: column;
         .ingredients{
             grid-template-columns: repeat(4, auto);
+        }
+    }
+}
+@media(max-width: $tablet-screen) {
+    .header-content{
+        flex-direction: column;
+        .ingredients{
+            grid-template-columns: repeat(3, auto);
         }
     }
 }

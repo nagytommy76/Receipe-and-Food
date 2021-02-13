@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        <p class="title"><a target="_blank" href="https://nagytamas93.hu/">Nagy Tamás &copy;</a> Budapest</p>
+        <p class="title"><a class="link" target="_blank" href="https://nagytamas93.hu/">Nagy Tamás &copy;</a> Budapest</p>
         <section class="icons">
             <a class="icons-icon" target="_blank" href="https://github.com/nagytommy76/Receipe-and-Food">
                 <font-awesome-icon :icon="['fab', 'github']" size="2x"/>
@@ -14,7 +14,7 @@
 <style lang="scss" scoped>
 .footer{
     height: 8em;
-    background-color: $navbar-bg;
+    background-color: $footer-bg;
     color: white;
     display: flex;
     flex-direction: column;
@@ -23,6 +23,12 @@
     .title{
         font-size: 1.5em;
         margin-bottom: .7em;
+        a{
+            transition: color .3s ease;
+            &:hover{
+                color: $navbar-hover-color;
+            }
+        }
     }
     a{
         color: white;
@@ -30,9 +36,11 @@
     .icons{
         &-icon{
             margin-right: .4em;
-            transition: color .3s ease;
+            transition: all .3s ease;
             font-size: 1.3em;
+            transform: rotateX(-20deg);
             &:hover{
+                transform: rotateY(20deg);
                 color: $navbar-hover-color;
             }
         }

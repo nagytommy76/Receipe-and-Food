@@ -1,6 +1,5 @@
 <template>
     <section class="container">
-    <!-- <router-view></router-view> -->
         <base-search-section></base-search-section>
         <section class="card-container">
             <base-receipe-card
@@ -33,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .container{
     min-height: 85vh;
-    max-width: 80%;
+    max-width: 55%;
     margin: 2em auto 0 auto;
     .card-container{
         display: grid;
@@ -53,6 +52,12 @@ export default {
             width: 100vw;
             justify-content: center;
         }
+    }
+}
+
+@media (max-width: $large-screen) {
+    .container{
+        max-width: 80%;
     }
 }
 </style>
