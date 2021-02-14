@@ -1,9 +1,7 @@
 <template>
     <section class="food-container">
         <h1 class="main-title">{{ details.title }}</h1>
-        <header-content 
-            :details="details"
-        />
+        <header-content />
         <section class="body-content">
             <Summary :summaryText="details.summary" />
             <AnalyzedInstructions 
@@ -19,7 +17,7 @@ import AnalyzedInstructions from './includes/RecipeDetailsIncludes/AnalyzedInstr
 
 import findRecipe from '../../mixins/findRecipe'
 
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
     mixins:[findRecipe,],
     name: 'RecipeDetails',
@@ -28,16 +26,23 @@ export default {
         HeaderContent,
         AnalyzedInstructions,
     },
+    // Coming from the url
     props: { 
         recipeId: Number
+    },
+    created(){
+        this.setCurrentRecipeId(this.recipeId)
     },
     computed: {
         ...mapGetters({
             RecipeDetails: 'getRecipeDetails',
+            details: 'getSingleRecipeDetail'
         }),
-        details(){
-            return this.findRecipeById()
-        },
+    },
+    methods: {
+        ...mapMutations({
+            setCurrentRecipeId: 'setCurrentRecipeId'
+        })
     },
 }
 </script>

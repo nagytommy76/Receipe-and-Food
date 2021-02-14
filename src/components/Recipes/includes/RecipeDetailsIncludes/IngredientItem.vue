@@ -1,8 +1,8 @@
 <template>
-    <span class="ingredients-item" v-for="ingred in extendedIngreds" :key="ingred.id">
+    <span class="ingredients-item" v-for="ingred in singleRecipeDetail.extendedIngredients" :key="ingred.id">
         <tooltip>
             <template v-slot:item>
-                <img @click="openModal" :src="`https://spoonacular.com/cdn/ingredients_100x100/${ingred.image}`" alt="Ingredient Image">
+                <img @click="openModal(ingred.id)" :src="`https://spoonacular.com/cdn/ingredients_100x100/${ingred.image}`" alt="Ingredient Image">
             </template>
             <template v-slot:text>
                 <section class="tooltip-list">
@@ -15,36 +15,40 @@
                 </section>                           
             </template>
         </tooltip>
-        <nutrition-modal
-            :ingredId="ingred.id"
-            :ingredNutrition="ingredNutrition"
-        ></nutrition-modal>
     </span>
+    <nutrition-modal
+        :modalOpen="isModalOpen"
+        @close-modal="closeModal"
+        :ingredId="selectedIngredId"
+    ></nutrition-modal>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import NutritionModal from './IngredItem/NutritionModal'
 export default {
     components:{
         NutritionModal,
     },
-    props:{
-        extendedIngreds: {
-            type: Array,
-            required: true,
-        },
-        ingredNutrition:{
-            type: Array,
-            required: true
-        },
+    data() {
+        return {
+            isModalOpen: false,
+            selectedIngredId: 0
+        }
+    },
+    computed: {
+        ...mapGetters({
+            singleRecipeDetail: 'getSingleRecipeDetail'
+        }),
     },
     methods: {
-        openModal(){
-            console.log('csá')
+        openModal(ingredId){
+            // Set the selected ingredient's id
+            this.selectedIngredId = ingredId
+            this.isModalOpen = !this.isModalOpen
+        },
+        closeModal(){
+            this.isModalOpen = false
         }
-        // showNutritionModal(ingredId){
-        //     this.$emit('open-modal', ingredId)
-        //     console.log('nyiss')
-        // }
     },
 }
 </script>

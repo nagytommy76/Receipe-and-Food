@@ -1,21 +1,24 @@
 import actions from './actions.js'
+import getters from './getters.js'
 export default{
     state(){
         return{
-            ReceipeDetails: null,
-            RecipeNutritions: {},
+            receipeDetails: null,
+            recipeNutritions: {},
+            currentRecipeId: null,
+            singleRecipeDetail: null,
         }
     },
-    getters:{
-        getRecipeDetails: state => state.ReceipeDetails,
-        getRecipeNutritions: state => state.RecipeNutritions,
-    },
+    getters,
     mutations:{
         setReceipeDetails(state, value){
-            state.ReceipeDetails = value
+            state.receipeDetails = value
         },
         setRecipeNutritions(state, value){
-            state.RecipeNutritions = value
+            state.recipeNutritions = value
+        },
+        setCurrentRecipeId(state, id){
+            state.currentRecipeId = id
         }
     },
     actions,

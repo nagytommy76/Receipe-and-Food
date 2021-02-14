@@ -1,43 +1,25 @@
 <template >
     <section class="header-content">
-        <img class="image" :src="image" alt="Food image">
+        <img class="image" :src="getRiecpeImage" alt="Food image">
         <section class="ingredients">
-            <ingredient-item 
-                :extendedIngreds="details.extendedIngredients"
-                :ingredNutrition="details.nutrition.nutrients"
-            />
+            <ingredient-item />
         </section>
     </section>
 </template>
 <script>
 import IngredientItem from './IngredientItem'
 import findRecipe from '../../../../mixins/findRecipe'
+import { mapGetters } from 'vuex'
 export default {
     mixins: [findRecipe],
     components:{
         IngredientItem,
     },
-    // data() {
-    //     return {
-    //         isModalOpen: false,
-    //     }
-    // },
     computed: {
-        image(){
-            return this.details.image.replace('312x231', '636x393')
-        },
+        ...mapGetters({
+            getRiecpeImage: 'getRiecpeImage',
+        }),
     },
-    props:{
-        details:{
-            type: Object,
-            required: true
-        }
-    },
-    // methods: {
-    //     openModal(ingredId){
-    //         console.log(ingredId)
-    //     }
-    // },
 }
 </script>
 <style lang="scss" scoped>

@@ -19,7 +19,7 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: $navbar-bg;
+    background-color: $footer-bg;
     color: white;
     &-brand{
         font-size: 2em;
