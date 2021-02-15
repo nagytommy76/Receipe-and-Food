@@ -30,8 +30,6 @@ export default {
 }
 body{
   font-family: 'Arimo', sans-serif;
-  // background: $navbar-bg;
-  // color: white;
 }
 a{
   text-decoration: none;

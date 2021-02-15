@@ -48,6 +48,7 @@ export default {
         width: 100vw;
         margin: 0;
         .card-container{
+            margin-top: 2rem;
             grid-template-columns: 90%;
             width: 100vw;
             justify-content: center;

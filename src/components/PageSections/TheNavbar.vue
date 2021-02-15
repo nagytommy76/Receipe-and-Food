@@ -8,11 +8,6 @@
         </nav> 
     </header>
 </template>
-<script>
-export default {
-    
-}
-</script>
 <style lang="scss" scoped>
 .navbar{
     height: 6.5em;
@@ -47,7 +42,7 @@ export default {
 @media(max-width: $mobile-screen) {
     .navbar{
         flex-direction: column;
-        height: 45vh;
+        height: 28vh;
         &-nav{
             flex-direction: column;
             &-item{

@@ -2,7 +2,7 @@
     <router-link :to="{name: 'RecipeDetails', params: { recipeId: id }}" class="card" @mouseenter="isOverlay = true" @mouseleave="isOverlay = false">
         <img :src="image" alt="Food Image">
         <transition name="overlay">
-            <div class="card-overlay" v-if="isOverlay">
+            <div class="card-overlay" v-if="isOverlay || mobileWidth">
                 <h1 class="food-name">{{ title }}</h1>
                 <span class="time"><font-awesome-icon icon="clock" /> {{ readyInMinutes }} minutes</span>
             </div>
@@ -10,6 +10,7 @@
     </router-link>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
     name: 'BaseRecipeCard',
     props: {
@@ -27,6 +28,11 @@ export default {
         image: {
             type: String,
         }
+    },
+    computed:{
+        ...mapGetters({
+            mobileWidth: 'getMobileWidth',
+        }),
     },
     data() {
         return {
@@ -67,6 +73,14 @@ export default {
             position: absolute;
             bottom: 10px;
             left: 5px;
+        }
+    }
+}
+
+@media (max-width: $mobile-screen) {
+    .card{
+        &-overlay{
+            background-color: rgba($color: #111, $alpha: .2);
         }
     }
 }

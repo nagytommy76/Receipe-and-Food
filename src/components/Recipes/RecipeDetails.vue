@@ -66,8 +66,4 @@ export default {
         max-width: 100vw;
     }
 }
-
-@media (max-width: $large-screen) {
-    
-}
 </style>

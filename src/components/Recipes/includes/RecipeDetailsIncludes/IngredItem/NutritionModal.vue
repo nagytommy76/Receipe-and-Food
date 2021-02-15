@@ -1,16 +1,18 @@
 <template>
     <transition name="background">
-        <div class="fade-in" v-if="modalOpen" @click="$emit('close-modal')"></div>
+        <div class="fade-in" v-if="modalOpen" ></div>
     </transition>
     <transition name="modal">
-        <base-modal v-if="modalOpen">
-            <template v-slot:content>
-                <nutritions
-                    :ingredId="ingredId"
-                    :ingredNutrition="ingredNutrition"
-                />
-            </template>
-        </base-modal>
+        <section class="modal-bg" v-if="modalOpen" @click="$emit('close-modal')">
+            <base-modal >
+                <template v-slot:content>
+                    <nutritions
+                        :ingredId="ingredId"
+                        :ingredNutrition="ingredNutrition"
+                    />
+                </template>
+            </base-modal>
+        </section>
     </transition>
 </template>
 <script>
@@ -37,12 +39,23 @@ export default {
     background: rgba($color: $dark, $alpha: .7);
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 4;
+}
+.modal-bg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 4;
 }
 
 .background-enter-active,
 .background-leave-active {
-  transition: opacity .3s ease;
+  transition: opacity .5s ease;
 }
 
 .background-enter-from,
@@ -51,7 +64,7 @@ export default {
 }
 .modal-enter-active,
 .modal-leave-active {
-  transition: all .5s ease-in;
+  transition: all .5s ease;
 }
 
 .modal-enter-from,

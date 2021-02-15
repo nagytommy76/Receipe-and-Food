@@ -40,4 +40,13 @@ export default {
         justify-content: space-between;
     }
 }
+@media(max-width: $mobile-screen) {
+    .ingred{
+        &-item{
+            padding: .1rem 0;
+            font-size: .7rem;
+            width: 190px;
+        }
+    }
+}
 </style>

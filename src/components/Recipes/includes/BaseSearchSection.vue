@@ -1,5 +1,4 @@
 <template>
-<!-- <section class="search-container" @mouseleave="closeSearchAside"> -->
     <div class="open-search" @mouseenter="openSearchAside" @click="toggleSearchAside"><p>Search</p></div>
     <transition name="search">
     <aside class="search" @mouseleave="closeSearchAside" v-if="isSearchOpen">
@@ -42,7 +41,6 @@
         </form>
     </aside>
     </transition>
-<!-- </section> -->
 </template>
 <script>
 import { mapActions } from 'vuex'
@@ -100,13 +98,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-// .search-container{
-//         z-index: 3;
-//         position: fixed;
-//         width: 300px;
-//         min-height: 50vh;
-//         top: 25%;
-//         left: 0;
     .search{
         z-index: 5;
         position: fixed;
@@ -116,8 +107,6 @@ export default {
         left: 0;
         background-color: $dark;
         box-shadow: 1px 1px 25px $dark;
-        // width: 300px;
-        // height: 50vh;
         color: white;
         display: flex;
         flex-direction: column;
@@ -146,16 +135,14 @@ export default {
             font-size: 1.5em;
         }
     }
-// }
 @media (max-width: $mobile-screen) {
-    .search-container{
+    .open-search{
+        top: 0;
+    }
+    .search{
         top: 50px;
         height: calc(100vh - 50px);
         width: 100%;
-        .search{
-            height: calc(100vh - 50px);
-            width: 100%;
-        }
     }
 }
 

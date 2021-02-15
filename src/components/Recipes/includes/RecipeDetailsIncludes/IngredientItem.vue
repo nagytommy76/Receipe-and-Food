@@ -1,20 +1,13 @@
 <template>
     <span class="ingredients-item" v-for="ingred in singleRecipeDetail.extendedIngredients" :key="ingred.id">
-        <tooltip>
-            <template v-slot:item>
-                <img @click="openModal(ingred.id)" :src="`https://spoonacular.com/cdn/ingredients_100x100/${ingred.image}`" alt="Ingredient Image">
-            </template>
-            <template v-slot:text>
-                <section class="tooltip-list">
-                    <h3>{{ ingred.name }}</h3>
-                    <p>
-                        {{ ingred.measures.metric.amount }} 
-                        {{ ingred.measures.metric.unitLong }} 
-                        {{ ingred.originalName }} 
-                    </p> 
-                </section>                           
-            </template>
-        </tooltip>
+        <DesktopIngredItem v-if="!screenSize"
+            @open-modal="openModal"
+            :ingred="ingred"
+        />
+        <MobileIngredItem v-else
+            @open-modal="openModal"
+            :ingred="ingred"
+        />
     </span>
     <nutrition-modal
         :modalOpen="isModalOpen"
@@ -25,9 +18,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import NutritionModal from './IngredItem/NutritionModal'
+import DesktopIngredItem from './IngredItem/DesktopIngredItem'
+import MobileIngredItem from './IngredItem/MobileIngredItem'
+
 export default {
     components:{
         NutritionModal,
+        DesktopIngredItem,
+        MobileIngredItem,
     },
     data() {
         return {
@@ -37,7 +35,8 @@ export default {
     },
     computed: {
         ...mapGetters({
-            singleRecipeDetail: 'getSingleRecipeDetail'
+            singleRecipeDetail: 'getSingleRecipeDetail',
+            screenSize: 'getMobileWidth',
         }),
     },
     methods: {
@@ -59,5 +58,10 @@ export default {
     justify-content: center;
     height: 150px;
     width: 150px;
+}
+@media(max-width: $mobile-screen) {
+    .ingredients-item{
+        height: 220px;
+    }
 }
 </style>
