@@ -7,6 +7,7 @@
             <AnalyzedInstructions 
                 v-if="details.analyzedInstructions.length > 0"
                 :instructions="details.analyzedInstructions"/>
+            <Nutrients :nutrients="details.nutrition.nutrients" />
         </section>
     </section>
 </template>
@@ -14,17 +15,18 @@
 import Summary from './includes/RecipeDetailsIncludes/Summary'
 import HeaderContent from './includes/RecipeDetailsIncludes/DetailHeader'
 import AnalyzedInstructions from './includes/RecipeDetailsIncludes/AnalyzedInstructions'
-
-import findRecipe from '../../mixins/findRecipe'
+import Nutrients from './includes/RecipeDetailsIncludes/RecipeNutrients'
+// import findRecipe from '../../mixins/findRecipe'
 
 import { mapGetters, mapMutations } from 'vuex'
 export default {
-    mixins:[findRecipe,],
+    // mixins:[findRecipe,],
     name: 'RecipeDetails',
     components:{
         Summary,
         HeaderContent,
         AnalyzedInstructions,
+        Nutrients,
     },
     // Coming from the url
     props: { 

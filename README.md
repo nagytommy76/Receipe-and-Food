@@ -1,29 +1,11 @@
-# receipe-and-food
+# Recipe Finder App
 
-## Project setup
+**[Spoonacular API](https://spoonacular.com/food-api)**
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+Technologies:
+- Vue.js 3 (Vuex, Vue-Router, SPA)
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<!-- - [Project](https://nagytamas93.hu/) -->
+- [LinkedIn](https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/)
+- [Facebook](https://www.facebook.com/tamas.nagy.1029)

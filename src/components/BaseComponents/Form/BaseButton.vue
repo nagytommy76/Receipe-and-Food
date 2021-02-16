@@ -32,7 +32,7 @@ export default {
     }
     &-primary{
         background-color: transparent;
-        color: white;
+        color: black;
         border: 3px solid $btn-primary;
         transition: all .2s ease;
         &:hover{
@@ -40,5 +40,11 @@ export default {
             color: black;
         }
     }
+}
+
+@media (max-width: $mobile-screen) {
+.btn{
+    font-size: .9em;
+}
 }
 </style>

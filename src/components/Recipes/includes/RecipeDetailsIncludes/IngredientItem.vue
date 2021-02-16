@@ -61,7 +61,8 @@ export default {
 }
 @media(max-width: $mobile-screen) {
     .ingredients-item{
-        height: 220px;
+        width: 95%;
+        height: 270px;
     }
 }
 </style>
