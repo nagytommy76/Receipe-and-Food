@@ -10,7 +10,7 @@
         <span class="mobile-item-button">
             <base-button
                 @click="$emit('open-modal', ingred.id)"
-                :text="'nutritions'"
+                :text="'nutrients'"
             />
         </span>
     </section>

@@ -55,8 +55,8 @@ export default {
 .ingredients-item{
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 150px;
+    justify-content: flex-start;
+    height: 180px;
     width: 150px;
 }
 @media(max-width: $mobile-screen) {
