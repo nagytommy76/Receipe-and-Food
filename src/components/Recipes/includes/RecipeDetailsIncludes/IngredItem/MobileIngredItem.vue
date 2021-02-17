@@ -11,6 +11,7 @@
             <base-button
                 @click="$emit('open-modal', ingred.id)"
                 :text="'nutrients'"
+                :text-color="'black'"
             />
         </span>
     </section>

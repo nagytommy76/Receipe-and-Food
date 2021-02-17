@@ -16,11 +16,9 @@ import Summary from './includes/RecipeDetailsIncludes/Summary'
 import HeaderContent from './includes/RecipeDetailsIncludes/DetailHeader'
 import AnalyzedInstructions from './includes/RecipeDetailsIncludes/AnalyzedInstructions'
 import Nutrients from './includes/RecipeDetailsIncludes/RecipeNutrients'
-// import findRecipe from '../../mixins/findRecipe'
 
 import { mapGetters, mapMutations } from 'vuex'
 export default {
-    // mixins:[findRecipe,],
     name: 'RecipeDetails',
     components:{
         Summary,

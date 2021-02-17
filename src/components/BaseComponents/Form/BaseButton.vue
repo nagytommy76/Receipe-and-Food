@@ -1,5 +1,5 @@
 <template>
-    <button class="btn" :class="subClass">
+    <button class="btn" :class="subClass" :style="{ color: textColor}">
         {{ text }}
     </button>
 </template>
@@ -9,6 +9,11 @@ export default {
         text: {
             tpye: String,
             required: true,
+        },
+        textColor: {
+            type: String,
+            required: false,
+            default: 'white'
         },
         subClass:{
             type: String,
@@ -32,7 +37,7 @@ export default {
     }
     &-primary{
         background-color: transparent;
-        color: black;
+        // color: black;
         border: 3px solid $btn-primary;
         transition: all .2s ease;
         &:hover{
@@ -43,8 +48,8 @@ export default {
 }
 
 @media (max-width: $mobile-screen) {
-.btn{
-    font-size: .9em;
-}
+    .btn{
+        font-size: .9em;
+    }
 }
 </style>
