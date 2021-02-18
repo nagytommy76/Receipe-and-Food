@@ -8,10 +8,8 @@
 </template>
 <script>
 import IngredientItem from './IngredientItem'
-import findRecipe from '../../../../mixins/findRecipe'
 import { mapGetters } from 'vuex'
 export default {
-    mixins: [findRecipe],
     components:{
         IngredientItem,
     },

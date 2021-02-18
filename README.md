@@ -8,7 +8,9 @@ Technologies:
 ```
 
 ```
-With this project, my main goal is to practice with Vue.js and get comfortable with its ecosystem. I'm using Vuex to manage data, and Vue Router to navigate between pages, although the app only contains one page, yet. I plan to add more functionality such as wine guide.
+With this project, my main goal is to practice with Vue.js and get comfortable with its ecosystem.
+I'm using Vuex to manage data, and Vue Router to navigate between pages, although the app only contains one page, yet.
+I plan to add more functionality such as wine guide.
 
 You can find the live demo below.
 ```
@@ -18,4 +20,4 @@ You can find the live demo below.
 - [Facebook](https://www.facebook.com/tamas.nagy.1029)
 
 # The project
-- [Project (Not working yet)](https://nagytamas93.hu/)
+- [Project](https://recipe-finder-app-c0b4e.firebaseapp.com/)
